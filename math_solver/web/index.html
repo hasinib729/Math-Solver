@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Solver – Step by Step</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <div>
+          <h1>Math Solver</h1>
+          <p class="subtitle">Turn scary equations into clear, step-by-step solutions.</p>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <section class="card">
+          <div class="tabs">
+            <button class="tab-button active" data-mode="differentiate">Differentiate</button>
+            <button class="tab-button" data-mode="solve-equation">Solve Equation</button>
+          </div>
+
+          <form id="solver-form" class="form">
+            <label class="label">
+              <span id="expression-label">Expression</span>
+              <textarea
+                id="expression-input"
+                class="input"
+                rows="3"
+                placeholder="Example (differentiate): x^3*sin(x)"
+              ></textarea>
+            </label>
+
+            <div class="form-row">
+              <label class="label small">
+                <span>Variable</span>
+                <input id="variable-input" class="input" value="x" maxlength="3" />
+              </label>
+
+              <div class="examples">
+                <span class="examples-label">Try:</span>
+                <button type="button" class="example-chip" data-example="x^3*sin(x)">
+                  x^3*sin(x)
+                </button>
+                <button
+                  type="button"
+                  class="example-chip"
+                  data-example="(x^2 + 3*x + 2)/(x - 1)"
+                >
+                  (x^2 + 3*x + 2)/(x - 1)
+                </button>
+                <button
+                  type="button"
+                  class="example-chip"
+                  data-example="x^2 - 5*x + 6 = 0"
+                  data-mode="solve-equation"
+                >
+                  x^2 - 5*x + 6 = 0
+                </button>
+              </div>
+            </div>
+
+            <button type="submit" class="primary-button" id="submit-button">
+              Solve step by step
+            </button>
+          </form>
+        </section>
+
+        <section class="card results-card" id="results-card">
+          <h2 class="results-title">Solution</h2>
+          <div id="status" class="status status-muted">
+            Enter an expression and hit “Solve step by step”.
+          </div>
+          <div id="results" class="results hidden"></div>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <span>Built for students who want to understand, not just copy answers.</span>
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+  </html>
+
